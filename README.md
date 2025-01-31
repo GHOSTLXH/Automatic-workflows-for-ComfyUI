@@ -1,6 +1,6 @@
 # Automatic-workflows-for-Comfy
 
-
+此为由于不想天天看码所以突发奇想把后端功能搬前端干的单图片\文件夹自动遍历双模式自动放大脱裤子放屁工作流。
 
 1：
 除开新增节点外本工作流还需要的前置节点\节点包（如果还没下载的话建议先使用ComfyManager进行下载）：KJNodes、efficiency-nodes-comfyui、Impact-Pack、Comfyroll_CustiomNodes、was-node-suite-comfyui、Custom-Scripts、ComfyMath、Logic、VideoHelperSuite、Easy-Use、sd-perturbed-attention、
