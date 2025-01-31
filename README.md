@@ -4,7 +4,7 @@
 
 工作流导入方法：将github项目内的automatic upscaling workflow v1（by GHOSTLXH）.json文件导入到ComfyUI中或之间把下面这张图像拖入ComfyUI中即可！
 
-![automatic upscale workflow.png](image/automaticupscaleworkflow.png)
+![automatic upscale workflow.png](image/automatic_upscale_workflow.png)
 
 1：
 除开新增节点外本工作流还需要的前置节点\节点包（如果还没下载的话建议先使用ComfyManager进行下载）：KJNodes、efficiency-nodes-comfyui、Impact-Pack、Comfyroll_CustiomNodes、was-node-suite-comfyui、Custom-Scripts、ComfyMath、Logic、VideoHelperSuite、Easy-Use、sd-perturbed-attention、
