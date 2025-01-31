@@ -11,6 +11,9 @@
 
 （loras and other models）（Come and have a visit please QAQ）
 
+工作流整体概览 whole workflow preview
+![whole workflow preview](image/wholeworkflowpreview.png)
+
 2：节点运行前你需要准备的：
 
 单图片模式：1、你要放大的图片 2、一张大小为512x512的空白png图像
