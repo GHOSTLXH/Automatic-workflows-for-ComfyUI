@@ -1,0 +1,6375 @@
+{
+  "last_node_id": 221,
+  "last_link_id": 307,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 3902.146728515625,
+        "1": 795.5946655273438
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            45
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [
+            27
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": [
+            28
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": {
+        "0": 3897.730712890625,
+        "1": 918.5946655273438
+      },
+      "size": {
+        "0": 326.3528137207031,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处用于导入单一特定图像，下方可看到目标图像原有的分辨率相加结果以便检查。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "UpscaleModelLoader",
+      "pos": {
+        "0": 5250.55712890625,
+        "1": 906.9950561523438
+      },
+      "size": {
+        "0": 241.3092498779297,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "放大模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "DAT_x2.pth",
+        null
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ImageUpscaleWithModel",
+      "pos": {
+        "0": 5249.81494140625,
+        "1": 811.5184936523438
+      },
+      "size": {
+        "0": 241.79998779296875,
+        "1": 46
+      },
+      "flags": {},
+      "order": 91,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 2,
+          "label": "放大模型"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4,
+            30
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "ImageScale",
+      "pos": {
+        "0": 5500.23095703125,
+        "1": 1265.1943359375
+      },
+      "size": {
+        "0": 232.5829620361328,
+        "1": 124.07047271728516
+      },
+      "flags": {},
+      "order": 99,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4,
+          "label": "图像"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 5,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 6,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "bilinear",
+        512,
+        512,
+        "disabled"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CR Text",
+      "pos": {
+        "0": 4387.23095703125,
+        "1": 2241.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 291.3864440917969
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "*",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "文本"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "显示帮助"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text"
+      },
+      "widgets_values": [
+        "1girl, solo, aibek, long hair, looking at viewer, open mouth, red eyes, holding, jewelry, blue hair, upper body, grey hair, braid, multicolored hair, sidelocks, earrings, tongue, indoors, signature, tongue out, necklace, hair bun, nail polish, blurry, from side, looking to the side, window, blurry background, profile, piercing, ring, single hair bun, cross, black nails, ear piercing, bright pupils, white pupils, sideways glance, nun, habit, cross necklace, cross earrings, latin cross, tongue piercing, holding cross, \nThe image is an illustration of a young girl with long blue hair and red eyes. She is wearing a black nun outfit with a white collar and a black veil. She has a cross necklace around her neck and earrings. The girl is holding a gold cross in her hand and is sticking out her tongue, as if she is about to kiss it. The background is dark and there is a window with white curtains. The overall mood of the image is somber and contemplative. \nmasterpiece, best quality, absurdres, highres,\n"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CR Text",
+      "pos": {
+        "0": 4390.81494140625,
+        "1": 2580.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 182.59620666503906
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "*",
+          "links": [
+            8
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "文本"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "显示帮助"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text"
+      },
+      "widgets_values": [
+        "worst quality,old,early,low quality,quality,lowres,signature,username,bad id,bad twitter id,english commentary,adversarial noise,logo,bad hands,mutated hands,mammal,anthro,furry,ambiguous_form,feral,semi-anthro, multiple views,"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoraLoader",
+      "pos": {
+        "0": 4921.81494140625,
+        "1": 2240.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 150
+      },
+      "flags": {},
+      "order": 82,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            33
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Aibek lokr ep121？\\Aibek(noob vpred1.0 prodigy 1)-000121.safetensors",
+        1,
+        1,
+        null
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoraLoader",
+      "pos": {
+        "0": 5141.23095703125,
+        "1": 2236.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 150
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "1.5二次元\\kasumigaoka_utaha(1.5 Adam 1e-4).safetensors",
+        1,
+        1,
+        null
+      ]
+    },
+    {
+      "id": 14,
+      "type": "ModelSamplingDiscrete",
+      "pos": {
+        "0": 5360.23095703125,
+        "1": 2296.5185546875
+      },
+      "size": {
+        "0": 228.3364715576172,
+        "1": 82
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingDiscrete"
+      },
+      "widgets_values": [
+        "v_prediction",
+        false
+      ]
+    },
+    {
+      "id": 15,
+      "type": "PerturbedAttention",
+      "pos": {
+        "0": 5151.23095703125,
+        "1": 2450.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 250
+      },
+      "flags": {},
+      "order": 88,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 11,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PerturbedAttention"
+      },
+      "widgets_values": [
+        3,
+        0,
+        "middle",
+        0,
+        -1,
+        -1,
+        0,
+        "full",
+        ""
+      ]
+    },
+    {
+      "id": 18,
+      "type": "Noise Control Script",
+      "pos": {
+        "0": 5607.81494140625,
+        "1": 2897.5185546875
+      },
+      "size": [
+        295.1834716796875,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": null,
+          "label": "脚本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [
+            17
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "脚本"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Noise Control Script"
+      },
+      "widgets_values": [
+        "gpu",
+        false,
+        false,
+        395990231407611,
+        "randomize",
+        0.015,
+        null
+      ],
+      "shape": 1
+    },
+    {
+      "id": 19,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 5920.23095703125,
+        "1": 2239.5185546875
+      },
+      "size": {
+        "0": 200.67208862304688,
+        "1": 89.56092834472656
+      },
+      "flags": {},
+      "order": 109,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            37,
+            84
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [
+            19
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "2304 height",
+          "type": "INT",
+          "links": [
+            20
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "CM_IntToNumber",
+      "pos": {
+        "0": 5917.23095703125,
+        "1": 2381.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 34
+      },
+      "flags": {},
+      "order": 112,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 19,
+          "widget": {
+            "name": "a"
+          },
+          "label": "A"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            63
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "数字"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToNumber"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 21,
+      "type": "CM_IntToNumber",
+      "pos": {
+        "0": 5921.23095703125,
+        "1": 2581.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 34
+      },
+      "flags": {},
+      "order": 113,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 20,
+          "widget": {
+            "name": "a"
+          },
+          "label": "A"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            64
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "数字"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToNumber"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Note",
+      "pos": {
+        "0": 6160.23095703125,
+        "1": 2240.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 91.30473327636719
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处可看到经过latent放大后每张图像的尺寸（上面的为宽，下面的为高）"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 23,
+      "type": "ImpactInversedSwitch",
+      "pos": {
+        "0": 5508.81494140625,
+        "1": 1451.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 98
+      },
+      "flags": {},
+      "order": 90,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "IMAGE",
+          "link": 21,
+          "label": "输入"
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 22,
+          "widget": {
+            "name": "select"
+          },
+          "label": "选择"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "IMAGE",
+          "links": [
+            57
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "output3",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactInversedSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 24,
+      "type": "ImpactInt",
+      "pos": {
+        "0": 5256.75048828125,
+        "1": 1381.734375
+      },
+      "size": {
+        "0": 216.08287048339844,
+        "1": 34
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 89,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "link": 23,
+          "widget": {
+            "name": "value"
+          },
+          "label": "值"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            22
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactInt"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Note",
+      "pos": {
+        "0": 5255.23095703125,
+        "1": 1168.1943359375
+      },
+      "size": {
+        "0": 214.66159057617188,
+        "1": 164.00119018554688
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "反转切换（输入）与切换（输出）节点：\n反转切换可输入任何类型的数据，并通过输出多条不同的output节点来转接不同的工作流，同时通过改变选择框内的数字（1对应output1，以此类推）来切换不同的工作流分支。\n\n而切换节点与前者恰好相反，通过选择框内的数字来选择输出哪一个工作流的输出结果。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 26,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4474.14697265625,
+        "1": 798.5946655273438
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 50,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 24,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "2560"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "ImpactCompare",
+      "pos": {
+        "0": 4955.45166015625,
+        "1": 809.2626342773438
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 84,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 25,
+          "label": "A"
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 26,
+          "label": "B"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            29
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "布尔"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactCompare"
+      },
+      "widgets_values": [
+        "a > b"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4240.73095703125,
+        "1": 794.5946655273438
+      },
+      "size": {
+        "0": 210,
+        "1": 146
+      },
+      "flags": {},
+      "order": 46,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 27,
+          "widget": {
+            "name": "a"
+          }
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 28,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            24,
+            48
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "a+b",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 29,
+      "type": "CR Set Value On Boolean",
+      "pos": {
+        "0": 4962.23095703125,
+        "1": 943.5184936523438
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 87,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 29,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Set Value On Boolean"
+      },
+      "widgets_values": [
+        true,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 30,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 5255.23095703125,
+        "1": 1042.1943359375
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 93,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 30,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "3744 width",
+          "type": "INT",
+          "links": [
+            31
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "5472 height",
+          "type": "INT",
+          "links": [
+            32
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 31,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 5511.23095703125,
+        "1": 814.1942749023438
+      },
+      "size": {
+        "0": 210,
+        "1": 170
+      },
+      "flags": {},
+      "order": 95,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 31,
+          "widget": {
+            "name": "a"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            5
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "(a / 2) * 2",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 32,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 5518.23095703125,
+        "1": 1041.1943359375
+      },
+      "size": {
+        "0": 210,
+        "1": 170
+      },
+      "flags": {},
+      "order": 96,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 32,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "(b/ 2) * 2",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 33,
+      "type": "dynamicThresholdingFull",
+      "pos": {
+        "0": 4924.27587890625,
+        "1": 2448.1884765625
+      },
+      "size": {
+        "0": 220.05491638183594,
+        "1": 298
+      },
+      "flags": {},
+      "order": 86,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 33,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "dynamicThresholdingFull"
+      },
+      "widgets_values": [
+        5,
+        1,
+        "Constant",
+        0,
+        "Constant",
+        0,
+        1,
+        "enable",
+        "MEAN",
+        "AD",
+        1
+      ]
+    },
+    {
+      "id": 36,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 5739.23095703125,
+        "1": 807.5184936523438
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 101,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 36,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            75
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "3744 width",
+          "type": "INT",
+          "links": [
+            38
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "5472 height",
+          "type": "INT",
+          "links": [
+            39
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 5750.23095703125,
+        "1": 1201.1943359375
+      },
+      "size": {
+        "0": 210,
+        "1": 146
+      },
+      "flags": {},
+      "order": 104,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 38,
+          "widget": {
+            "name": "a"
+          }
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 39,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "a+b",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 39,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 5760.23095703125,
+        "1": 1396.1943359375
+      },
+      "size": {
+        "0": 210,
+        "1": 152.58192443847656
+      },
+      "flags": {},
+      "order": 108,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 40,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "9216"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": {
+        "0": 5743.23095703125,
+        "1": 934.5184936523438
+      },
+      "size": {
+        "0": 210,
+        "1": 215.57162475585938
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处对经过放大模型后期放大后的图像大小再进行一次逻辑判断，此处的比较A为经过后期放大后的目标图像的宽+高，而B则为原图像分辨率*目标放大倍数（这个倍数可视情况具体条件，如果想再进行多次后期模型放大可将倍数改为更大的数字（如6倍等）），在比较后若A>B，则输出1（True），则目标图像会发送至图像保存节点进行保存。若A<B，则输出0（False），则目标图像会被发送至图像发送节点，然后再被扔回最开始的地方再进行判断从而进行再次放大！！！\n\n加注：为提升生成图像质量，建议将图像缩放节点的缩放方法改为bilinear！！！\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 42,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4242.73095703125,
+        "1": 984.5946655273438
+      },
+      "size": {
+        "0": 210,
+        "1": 146
+      },
+      "flags": {},
+      "order": 47,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 42,
+          "widget": {
+            "name": "a"
+          }
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 43,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            44,
+            49
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "a+b",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 43,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4464.14697265625,
+        "1": 1058.5947265625
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 51,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 44,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "1024"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "ImpactSwitch",
+      "pos": {
+        "0": 4464.14697265625,
+        "1": 1186.5947265625
+      },
+      "size": {
+        "0": 210,
+        "1": 118
+      },
+      "flags": {},
+      "order": 59,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "IMAGE",
+          "link": 45,
+          "label": "输入1"
+        },
+        {
+          "name": "input2",
+          "type": "IMAGE",
+          "link": 46,
+          "label": "输入2"
+        },
+        {
+          "name": "input3",
+          "type": "IMAGE",
+          "link": null,
+          "label": "输入3"
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 47,
+          "widget": {
+            "name": "select"
+          },
+          "label": "选择"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            51
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "标签"
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 45,
+      "type": "ImpactCompare",
+      "pos": {
+        "0": 4471.14697265625,
+        "1": 931.5946655273438
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 52,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 48,
+          "label": "A"
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 49,
+          "label": "B"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "布尔"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactCompare"
+      },
+      "widgets_values": [
+        "a > b"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "CR Set Value On Boolean",
+      "pos": {
+        "0": 4130.73095703125,
+        "1": 1169.5947265625
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 56,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 50,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Set Value On Boolean"
+      },
+      "widgets_values": [
+        true,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 47,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 4130.73095703125,
+        "1": 1325.5947265625
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 63,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 51,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            54
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 48,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4733.81494140625,
+        "1": 809.5184936523438
+      },
+      "size": {
+        "0": 210,
+        "1": 146
+      },
+      "flags": {},
+      "order": 81,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 52,
+          "widget": {
+            "name": "a"
+          }
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 53,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            25,
+            101
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "a+b",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 49,
+      "type": "Note",
+      "pos": {
+        "0": 3896.730712890625,
+        "1": 1011.5946655273438
+      },
+      "size": {
+        "0": 332.84588623046875,
+        "1": 118.14013671875
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处为将最开始输入图像的大小与接收图像的大小进行比较，然后决定输出哪一个图像给下一个路径选择节点。若最开始图像A分辨率大于接收图像B，则输出1（True），即最开始图像至下一选择节点，若最开始图像分辨率小于接收图像B，则输出2（False），即回传图像至下一选择节点。（默认所有设置布尔值节点的如果真的输出值为1，如果假的输出值为2！！！）\n\n注1：（在使用单张图片进行生成时）在第一次运行前，为确保if逻辑判断能正常运行并选择输出源目标图像，图像接收节点内必须载入一张分辨率小于源目标图像的图像。这样才能正式开启这一流程。\n\n注2：此工作流建议在开启自动执行的变动或实时模式后再启用，不然的话在自动执行禁用模式下会在执行完第一次，即第一次图像回传后就会中止，需要再手动执行队列才能继续流程，这样会很麻烦。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 50,
+      "type": "Reroute",
+      "pos": {
+        "0": 5052.81494140625,
+        "1": 1641.5185546875
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 51,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 5262.81494140625,
+        "1": 1457.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 83,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 55,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "ImageScale",
+      "pos": {
+        "0": 4902.81494140625,
+        "1": 2802.5185546875
+      },
+      "size": {
+        "0": 232.5829620361328,
+        "1": 130
+      },
+      "flags": {},
+      "order": 100,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 58,
+          "label": "图像"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 59,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 60,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            61
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "bilinear",
+        512,
+        512,
+        "disabled"
+      ]
+    },
+    {
+      "id": 55,
+      "type": "VAEEncode",
+      "pos": {
+        "0": 5153.48095703125,
+        "1": 2945.7548828125
+      },
+      "size": {
+        "0": 182.54119873046875,
+        "1": 46
+      },
+      "flags": {},
+      "order": 102,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 61,
+          "label": "图像"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 62,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            15
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 56,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 6141.23095703125,
+        "1": 2377.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 114,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 63,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "1536"
+      ]
+    },
+    {
+      "id": 57,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 6143.23095703125,
+        "1": 2545.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 76.84072875976562
+      },
+      "flags": {},
+      "order": 115,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 64,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "2304"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "Note",
+      "pos": {
+        "0": 4396.81494140625,
+        "1": 3016.5185546875
+      },
+      "size": {
+        "0": 274.34808349609375,
+        "1": 140.7205352783203
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处通过放大模型结合扩散模型进行放大，由于这里使用的是2倍的放大模型，所以这里实际上图像会先被放大到2倍，再缩放回1.5倍大小进行图生图（不除2的话就是先放大2倍再乘1.5倍大小之后再图生图了！）（这里若有需要可视情况更换为其他倍数放大的模型）\n（a是宽，b是高）\n具体放大倍数输入格式（以a为例，b也应一致，不然会造成图像比例失衡）：\n(a/所选放大模型的倍数）*实际图像单次放大倍数！\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 59,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4914.48095703125,
+        "1": 2976.7548828125
+      },
+      "size": {
+        "0": 210,
+        "1": 170
+      },
+      "flags": {},
+      "order": 98,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 65,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            60
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "(b / 2) * 1.5",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 60,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4681.81494140625,
+        "1": 2977.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 170
+      },
+      "flags": {},
+      "order": 97,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 66,
+          "widget": {
+            "name": "a"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            59
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "(a / 2) * 1.5",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 61,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 4670.81494140625,
+        "1": 2810.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 94,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 67,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            58
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "2048 width",
+          "type": "INT",
+          "links": [
+            66
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "3072 height",
+          "type": "INT",
+          "links": [
+            65
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "pos": {
+        "0": 5149.81494140625,
+        "1": 2801.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 62.12380599975586
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "加注：为提升生成图像质量，建议将图像缩放节点的缩放方法改为bilinear！！！"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 67,
+      "type": "Note",
+      "pos": {
+        "0": 6365.81494140625,
+        "1": 2480.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 140.4335479736328
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "    此处图像发送与接受节点由于节点自身的bug？的原因，这两个节点的连接ID的数字并不能接收到外来数字的输入（虽然它能转成整数输入端口，但实际使用的ID依然是其在内置时的数字），因此建议手动输入两节点的连接ID（暂定单张图片模式ID为2，文件夹遍历模式ID为3），并在工作流启动前检查一遍确保需使用的两个节点ID相同以确保工作流正常运行。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 71,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 4134.73095703125,
+        "1": 1454.5947265625
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 76,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 72,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            74
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [
+            52
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": [
+            53
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 73,
+      "type": "Reroute",
+      "pos": {
+        "0": 5055.81494140625,
+        "1": 1708.5185546875
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 80,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            55
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 76,
+      "type": "Note",
+      "pos": {
+        "0": 4371.73095703125,
+        "1": 1352.5947265625
+      },
+      "size": {
+        "0": 298.81866455078125,
+        "1": 194.53067016601562
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处为两个模式（单张图片\\文件夹遍历模式）在输往判断通过扩散模型还是后期模型放大的图像节点前获得的图像节点（上方为单张图片，下方为文件夹内遍历所有图片）！\n\n若想切换模式，只需将对应图像节点的宽和高对接至放大模式选择模块上python表达式为a+b的整数运算节点、对应图像节点的转接点接至单纯后期模型放大模块内的获取图像尺寸数量节点即可切换模式。（注： 若需使用单张图片模式，请将上方图像保存节点左侧的获取图像尺寸数量节点的图像输出节点直连至上方的图像保存节点即可。\n    若需使用文件夹遍历图片模式，请将上段提及的图像保存节点左侧的获取图像尺寸数量节点的图像输出节点连至此注释右侧的图像转接点后接入图像组合批次即可完成文件夹遍历图片保存。）"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 86,
+      "type": "ImageSender",
+      "pos": {
+        "0": 6212.81494140625,
+        "1": 2672.5185546875
+      },
+      "size": {
+        "0": 315,
+        "1": 294
+      },
+      "flags": {},
+      "order": 111,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 84,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImageSender"
+      },
+      "widgets_values": [
+        "ImgSender",
+        3
+      ]
+    },
+    {
+      "id": 101,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4733.81494140625,
+        "1": 992.5184936523438
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 85,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 101,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "2560"
+      ]
+    },
+    {
+      "id": 116,
+      "type": "Note",
+      "pos": {
+        "0": 3899.730712890625,
+        "1": 1332.5947265625
+      },
+      "size": {
+        "0": 210.49960327148438,
+        "1": 121.10553741455078
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "注：在每次启用单张图片模式之前需将图像接收节点切换回512x512大小的空白图像与检查图像接受和发送节点的链接ID是否相同！（文件夹遍历模式注意事项看下面）（图像接收节点不启用save_to_workflow、在使用对应模式时启用trigger_always，否则不启用）"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 117,
+      "type": "Note",
+      "pos": {
+        "0": 4992.81494140625,
+        "1": 1787.5185546875
+      },
+      "size": {
+        "0": 216.63819885253906,
+        "1": 134.6748504638672
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "注：此处为工作流单张图片生成（上）\\特定文件夹遍历模式（下）的图像转接点。 \n  若需要使用单张图片生成模式，请将上方的图像转接点连到右上角与反转切换节点相连的获取图像尺寸数量节点。\n  若需要使用文件夹遍历生成模式，请将下方的图像转接点连到右上角与反转切换节点相连的获取图像尺寸数量节点。\n  "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 121,
+      "type": "Note",
+      "pos": {
+        "0": 3778.814697265625,
+        "1": 2537.5185546875
+      },
+      "size": {
+        "0": 374.0725402832031,
+        "1": 325.83294677734375
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "在这个注释附近的节点参数大全：\n1：位于此注释上方的两个获取图像尺寸数量节点分别来自 图像接收节点（左）和 Interval Image Counter节点（右），它们分别输出到下方的Alternating Output B节点（左-input_a，右-input_b）\n2：位于此注释左上角的Interval Image Counter节点通过内置计数器的方式来实现隔特定轮数输出第几张图片的功能\n其左侧image输入端口接实际用于生成的图像加载节点，trigger端口不用接，reset端口接最上面的布尔，trigger_interval接左下角若真=4、假=3的设置布尔值，increment=1，右侧image端口接1提到的节点，count端口接右边输出日志。\n3：左下角比较方法为a=b的比较节点的A接其上方值为0的整数节点，B接\n最上方起始值为-1的计数节点，比较节点的布尔值接其下方的若真=4、若假=3的设置布尔值节点。（这一套逻辑判断用于确保Interval Image Counter与Interval Counter节点在第1（代码位置为0）张与后面n张图片时都过3轮才换后一张图片（因为第一张图片的循环过程中还包含了用于重置的那一轮））\n\n4：Interval Counter节点左侧的reset端口接最上方的布尔值，tick接最上方起始值为-1的计数节点（这里tick端口接入的数字并不会用于其内置计数器的计数中，仅仅是为了更新这一节点对应的哈希值从而避过Comfy的dirty check所设），trigger_interval接上方若真=4、若假=3的设置布尔值节点，mode=increment，min_value=0,max_value=其他数字，反正比文件夹内图像数量多就行（max与min仅在in\\decrease to stop模式里才会启用，默认最小为0），step=1，其int输出端口接实际用于生成的图像加载节点的skip_first_image端口与右侧的输出日志端口。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": {
+        "0": 3566.916015625,
+        "1": 803.076171875
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "noob 纯v预测文生图_00133_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "ImageReceiver",
+      "pos": {
+        "0": 3569.916015625,
+        "1": 1341.076171875
+      },
+      "size": {
+        "0": 315,
+        "1": 200
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageReceiver"
+      },
+      "widgets_values": [
+        "for循环测试用图.png",
+        2,
+        false,
+        "",
+        false
+      ]
+    },
+    {
+      "id": 113,
+      "type": "Note",
+      "pos": {
+        "0": 3571.916015625,
+        "1": 1157.076171875
+      },
+      "size": {
+        "0": 214.30264282226562,
+        "1": 142.8834686279297
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "    此处图像发送与接受节点由于节点自身的bug？的原因，这两个节点的连接ID的数字并不能接收到外来数字的输入（虽然它能转成整数输入端口，但实际使用的ID依然是其在内置时的数字），因此建议手动输入两节点的连接ID（暂定单张图片模式ID为2，文件夹遍历模式ID为3），并在工作流启动前检查一遍确保需使用的两个节点ID相同以确保工作流正常运行。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 3800.916015625,
+        "1": 1186.076171875
+      },
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 42,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 41,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "512 width",
+          "type": "INT",
+          "links": [
+            42
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "512 height",
+          "type": "INT",
+          "links": [
+            43
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": {
+        "0": 4961.81494140625,
+        "1": 1104.5185546875
+      },
+      "size": {
+        "0": 252.52471923828125,
+        "1": 430.8687744140625
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处比较节点将原有图像的宽高。若A大于B，则输出布尔值1（True），否则输出0（False）。\n\n注1：左侧运算节点内输入原图像的宽高即可，出于latent放大极限（即硬件显存极限）的限制，建议B值的设定为原有图像宽+高的和的2\\4倍即可！！！（单张图片直接把载入原图节点的宽高连到这里就行，遍历模式下需要接到遍历模块右下角那个自适应获取图像宽高的才行）（此工作流第一张不应小于第二张图片的二分之一，不然会直接判断为糊坨坨直接进后期模型放大或再进行一次扩散模型辅助放大，如果两张图片大小差距过大的话可以先使用工作流对应项目里附带的图片分桶脚本，先对文件夹内所有图像进行分桶归类，再运行工作流，这样每个小文件夹内图片大小均相等就可以完全解决这一问题）\n\n注2：此处布尔值设置节点可设置具体布尔值所对应的输出函数，如果输出布尔值为真（即输入图像大小大于设定判断分辨率的），则将输入图像导流至output1，即通过模型直接放大工作流，如果输出布尔值为假，则将输入图像导流至output2，即latent放大工作流进行放大！！！"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 97,
+      "type": "Note",
+      "pos": {
+        "0": 3820,
+        "1": 2256
+      },
+      "size": {
+        "0": 333.9612121582031,
+        "1": 124.43795013427734
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此注释左侧加载图像（路径）节点为实际参与到文件夹遍历过程中的加载图像节点。\n参数：\n路径：需遍历文件夹的Windows绝对路径（e：C:\\abc）\n图像读取上限：1\n模选：1\nskip_first_images端口应与Interval Counter的INT输出端口相连，图像输出端口与Interval Image Counter相连。\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 88,
+      "type": "LoadPromptFromTXT",
+      "pos": {
+        "0": 4404,
+        "1": 1645
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 70,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 85,
+          "widget": {
+            "name": "index"
+          },
+          "label": "index"
+        },
+        {
+          "name": "trigger",
+          "type": "INT",
+          "link": 86,
+          "widget": {
+            "name": "trigger"
+          },
+          "label": "trigger"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            77
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "prompt"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadPromptFromTXT"
+      },
+      "widgets_values": [
+        "C:\\好好好",
+        0,
+        0
+      ]
+    },
+    {
+      "id": 79,
+      "type": "Note",
+      "pos": {
+        "0": 4394,
+        "1": 1759
+      },
+      "size": {
+        "0": 231.8844757080078,
+        "1": 328.8751220703125
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "   此处为文件夹遍历图像对应（正面）prompt加载节点。\n   其作用为输出与输入图像文件同名的txt文件所包含的内容。在使用时将此文本节点的输出端口与下方加载器的正面提示词接入端口相连即可！！！\n\n节点参数：\nindex（索引）：应与图像文件计数节点（此处为Interval Image Counter节点）相连接\ntrigger（触发）：与index相同\ndirectory：目标遍历文件夹（需输入完整路径）（目前该节点仅接受Windows路径，若需要Linux路径的话请自己动手改一下节点代码谢谢）\n\n注：若启用是单张图片生成模式的话将模型辅助图生图放大部分的正面prompt输入改为下方加载器节点左上角的文本并在其中输入正面prompt即可！（负面prompt由于一般是固定的，此处直接在下方负面提示词接入端口内输入即可！！！）"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 52,
+      "type": "ImageUpscaleWithModel",
+      "pos": {
+        "0": 4408,
+        "1": 2807
+      },
+      "size": {
+        "0": 241.79998779296875,
+        "1": 46
+      },
+      "flags": {},
+      "order": 92,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 56,
+          "label": "放大模型"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 57,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            67
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 53,
+      "type": "UpscaleModelLoader",
+      "pos": {
+        "0": 4406,
+        "1": 2896
+      },
+      "size": {
+        "0": 241.3092498779297,
+        "1": 82
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "放大模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "DAT_x2.pth",
+        null
+      ]
+    },
+    {
+      "id": 37,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 5934,
+        "1": 2669
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 110,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 90,
+      "type": "Number Counter",
+      "pos": {
+        "0": 3574,
+        "1": 1771
+      },
+      "size": {
+        "0": 210,
+        "1": 194
+      },
+      "flags": {},
+      "order": 45,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "reset_bool",
+          "type": "NUMBER",
+          "link": 87,
+          "label": "重置布尔"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "number",
+          "type": "NUMBER",
+          "links": null,
+          "shape": 3,
+          "label": "数字"
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            89,
+            99,
+            281
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Number Counter"
+      },
+      "widgets_values": [
+        "integer",
+        "increment",
+        -1,
+        9,
+        1
+      ]
+    },
+    {
+      "id": 83,
+      "type": "Number Counter",
+      "pos": {
+        "0": 3901,
+        "1": 2023
+      },
+      "size": {
+        "0": 228.92108154296875,
+        "1": 194
+      },
+      "flags": {},
+      "order": 44,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "reset_bool",
+          "type": "NUMBER",
+          "link": 80,
+          "label": "重置布尔"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "number",
+          "type": "NUMBER",
+          "links": null,
+          "shape": 3,
+          "label": "数字"
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            96
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Number Counter"
+      },
+      "widgets_values": [
+        "integer",
+        "increment",
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": {
+        "0": 5152,
+        "1": 3047
+      },
+      "size": {
+        "0": 284.50634765625,
+        "1": 82
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            16,
+            62
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "千千测试vae90000_1008.safetensors",
+        null
+      ]
+    },
+    {
+      "id": 80,
+      "type": "VHS_LoadImagesPath",
+      "pos": {
+        "0": 3568,
+        "1": 2255
+      },
+      "size": [
+        245.1999969482422,
+        170
+      ],
+      "flags": {},
+      "order": 61,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "skip_first_images",
+          "type": "INT",
+          "link": 78,
+          "widget": {
+            "name": "skip_first_images"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            81
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadImagesPath"
+      },
+      "widgets_values": {
+        "directory": "C:\\好好好",
+        "image_load_cap": 1,
+        "skip_first_images": 0,
+        "select_every_nth": 1,
+        "choose folder to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "frame_load_cap": 1,
+            "skip_first_images": 0,
+            "select_every_nth": 1,
+            "filename": "C:\\好好好",
+            "type": "path",
+            "format": "folder"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 70,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4156.81494140625,
+        "1": 2334.5185546875
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 78,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 71,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "1024"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4160,
+        "1": 2682
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 71,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 92,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "0"
+      ]
+    },
+    {
+      "id": 62,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4734,
+        "1": 1315
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 75,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 68,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "5120"
+      ]
+    },
+    {
+      "id": 92,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4160,
+        "1": 2566
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 62,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 91,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "0"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4735,
+        "1": 1120
+      },
+      "size": {
+        "0": 210,
+        "1": 148.26429748535156
+      },
+      "flags": {},
+      "order": 72,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 34,
+          "widget": {
+            "name": "a"
+          }
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 35,
+          "widget": {
+            "name": "b"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            26,
+            68
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "(a+b)*2",
+        "False",
+        1024,
+        1536,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 96,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4159,
+        "1": 2446
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 53,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 97,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "0"
+      ]
+    },
+    {
+      "id": 84,
+      "type": "ImageCounter",
+      "pos": {
+        "0": 3569,
+        "1": 2468
+      },
+      "size": {
+        "0": 210,
+        "1": 118
+      },
+      "flags": {},
+      "order": 66,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 81,
+          "label": "image"
+        },
+        {
+          "name": "trigger",
+          "type": "*",
+          "link": null,
+          "label": "trigger"
+        },
+        {
+          "name": "reset",
+          "type": "BOOLEAN",
+          "link": 82,
+          "widget": {
+            "name": "reset"
+          },
+          "label": "reset"
+        },
+        {
+          "name": "trigger_interval",
+          "type": "INT",
+          "link": 83,
+          "widget": {
+            "name": "trigger_interval"
+          },
+          "label": "trigger_interval"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            69
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "image"
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": [
+            85,
+            86,
+            92
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "count"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCounter"
+      },
+      "widgets_values": [
+        false,
+        1,
+        4
+      ]
+    },
+    {
+      "id": 99,
+      "type": "ImpactCompare",
+      "pos": {
+        "0": 3567,
+        "1": 2722
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 49,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 98,
+          "label": "A"
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 99,
+          "label": "B"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            100
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "布尔"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactCompare"
+      },
+      "widgets_values": [
+        "a = b"
+      ]
+    },
+    {
+      "id": 82,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 3812,
+        "1": 2419
+      },
+      "size": {
+        "0": 163.0576629638672,
+        "1": 86.24247741699219
+      },
+      "flags": {},
+      "order": 43,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 79,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            93
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "512 width",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "512 height",
+          "type": "INT",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 68,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 3981,
+        "1": 2420
+      },
+      "size": {
+        "0": 162.10214233398438,
+        "1": 86
+      },
+      "flags": {},
+      "order": 69,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 69,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            94
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 100,
+      "type": "CR Set Value On Boolean",
+      "pos": {
+        "0": 3568,
+        "1": 2839
+      },
+      "size": {
+        "0": 214.46295166015625,
+        "1": 133.38003540039062
+      },
+      "flags": {},
+      "order": 55,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 100,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            83,
+            90
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Set Value On Boolean"
+      },
+      "widgets_values": [
+        true,
+        4,
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "type": "easy fullLoader",
+      "pos": {
+        "0": 4611.23095703125,
+        "1": 2243.5185546875
+      },
+      "size": {
+        "0": 294.4407653808594,
+        "1": 504.9976806640625
+      },
+      "flags": {},
+      "order": 79,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model_override",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型（可选）"
+        },
+        {
+          "name": "clip_override",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP（可选）"
+        },
+        {
+          "name": "vae_override",
+          "type": "VAE",
+          "link": null,
+          "label": "VAE（可选）"
+        },
+        {
+          "name": "optional_lora_stack",
+          "type": "LORA_STACK",
+          "link": null,
+          "label": "LoRA堆（可选）"
+        },
+        {
+          "name": "optional_controlnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 7,
+          "widget": {
+            "name": "positive"
+          },
+          "label": "正面提示词"
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 8,
+          "widget": {
+            "name": "negative"
+          },
+          "label": "负面提示词"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "PIPE_LINE",
+          "links": null,
+          "shape": 3,
+          "label": "节点束"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            9
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            10
+          ],
+          "slot_index": 3,
+          "shape": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "slot_index": 4,
+          "shape": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 5,
+          "shape": 3
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy fullLoader"
+      },
+      "widgets_values": [
+        "NoobAI-XL-epsv1.1.safetensors",
+        "Default",
+        "千千测试vae90000_1008.safetensors",
+        -2,
+        "None",
+        1,
+        1,
+        "width x height (custom)",
+        1536,
+        1024,
+        "",
+        "none",
+        "A1111",
+        "",
+        "none",
+        "A1111",
+        1,
+        false
+      ]
+    },
+    {
+      "id": 91,
+      "type": "IntervalCounter",
+      "pos": {
+        "0": 3568,
+        "1": 3018
+      },
+      "size": {
+        "0": 219.06930541992188,
+        "1": 170
+      },
+      "flags": {},
+      "order": 58,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "reset",
+          "type": "BOOLEAN",
+          "link": 88,
+          "widget": {
+            "name": "reset"
+          },
+          "label": "reset"
+        },
+        {
+          "name": "tick",
+          "type": "INT",
+          "link": 89,
+          "widget": {
+            "name": "tick"
+          },
+          "label": "tick"
+        },
+        {
+          "name": "trigger_interval",
+          "type": "INT",
+          "link": 90,
+          "widget": {
+            "name": "trigger_interval"
+          },
+          "label": "trigger_interval"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            78,
+            91
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IntervalCounter"
+      },
+      "widgets_values": [
+        false,
+        "increment",
+        0,
+        9,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "id": 69,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4159,
+        "1": 2226
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 77,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 70,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "1536"
+      ]
+    },
+    {
+      "id": 95,
+      "type": "Evaluate Integers",
+      "pos": {
+        "0": 4157,
+        "1": 2013
+      },
+      "size": {
+        "0": 210,
+        "1": 170
+      },
+      "flags": {},
+      "order": 48,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 96,
+          "widget": {
+            "name": "a"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            95,
+            97,
+            106
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Evaluate Integers"
+      },
+      "widgets_values": [
+        "a-1",
+        "False",
+        0,
+        0,
+        0
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 192,
+      "type": "IntervalCounterB",
+      "pos": {
+        "0": 3583,
+        "1": 3825
+      },
+      "size": {
+        "0": 210,
+        "1": 198
+      },
+      "flags": {},
+      "order": 60,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "tick",
+          "type": "INT",
+          "link": 281,
+          "widget": {
+            "name": "tick"
+          },
+          "label": "tick"
+        },
+        {
+          "name": "reset",
+          "type": "BOOLEAN",
+          "link": 282,
+          "widget": {
+            "name": "reset"
+          },
+          "label": "reset"
+        },
+        {
+          "name": "trigger_interval",
+          "type": "INT",
+          "link": 285,
+          "widget": {
+            "name": "trigger_interval"
+          },
+          "label": "trigger_interval"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            283,
+            284
+          ],
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IntervalCounterB"
+      },
+      "widgets_values": [
+        false,
+        "increment",
+        0,
+        100,
+        1,
+        3,
+        0,
+        "value - 1"
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CR Set Value On Boolean",
+      "pos": {
+        "0": 3581,
+        "1": 3649
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 57,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 107,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            285
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3,
+          "label": "浮点"
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Set Value On Boolean"
+      },
+      "widgets_values": [
+        true,
+        4,
+        3
+      ]
+    },
+    {
+      "id": 98,
+      "type": "Int",
+      "pos": {
+        "0": 3564,
+        "1": 2625
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            98
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 105,
+      "type": "ImpactCompare",
+      "pos": {
+        "0": 3577,
+        "1": 3518
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 54,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 105,
+          "label": "A"
+        },
+        {
+          "name": "b",
+          "type": "INT",
+          "link": 106,
+          "label": "B"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            107
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "布尔"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactCompare"
+      },
+      "widgets_values": [
+        "a >= b"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "Int",
+      "pos": {
+        "0": 3572,
+        "1": 3226
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Int"
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 94,
+      "type": "AlternatingOutputB",
+      "pos": {
+        "0": 3796,
+        "1": 2905
+      },
+      "size": {
+        "0": 286.40008544921875,
+        "1": 142
+      },
+      "flags": {},
+      "order": 73,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input_a",
+          "type": "IMAGE",
+          "link": 93,
+          "label": "input_a"
+        },
+        {
+          "name": "input_b",
+          "type": "IMAGE",
+          "link": 94,
+          "label": "input_b"
+        },
+        {
+          "name": "counter",
+          "type": "INT",
+          "link": 95,
+          "widget": {
+            "name": "counter"
+          },
+          "label": "counter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            72
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "image"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            70
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "width"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            71
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "height"
+        },
+        {
+          "name": "counter",
+          "type": "INT",
+          "links": null,
+          "slot_index": 3,
+          "shape": 3,
+          "label": "counter"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AlternatingOutputB"
+      },
+      "widgets_values": [
+        3,
+        "input_b",
+        0
+      ]
+    },
+    {
+      "id": 122,
+      "type": "Note",
+      "pos": {
+        "0": 3787,
+        "1": 3100
+      },
+      "size": {
+        "0": 324.41680908203125,
+        "1": 194.11944580078125
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Alternating Output B节点\n作用：用于将输入的两张图片以特定规律（第一轮输出图片由first_output指定，其后n（输入的）-1轮输出与first_output类型相同，到第n轮时输出与first_output类型相反的图像，以此为一个循环）（第一轮不计入循环，真正循环由第2轮开始）（示例：当n=3,first_output=input_b时前10轮输出结果为BBBABBABBA）\n\n参数：\n1：左侧的input_a接来自图像接收节点，input_b接来自Interval Image Counter节点的图像，counter接上方python表达式为a-1的整数运算节点。\n2：n=单轮循环包含轮数（默认=3），first_output为第一轮输出哪张图片（默认=input_b）\n3:右侧image输出端口接上方模式选取的获取图像尺寸数量节点，宽高则接右侧的输出日志节点用于核对。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 120,
+      "type": "Note",
+      "pos": {
+        "0": 4118,
+        "1": 2910
+      },
+      "size": {
+        "0": 254.92059326171875,
+        "1": 185.0869903564453
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处7个输出日志对应节点与数字含义（由上至下）：\n1：Alternating Output B节点输出图片的宽\n2：Alternating Output B节点输出图片的高\n3：实际总运行轮数-1（因为第一轮用于重置工作流了）\n4：Interval Counter节点对外输出轮数（即目前用第n-1张图像进行生成）（此处由trigger_interval所决定，具体可看对应节点的注释与下面的默认节点遍历顺序示例）\n5：Interval Image Counter节点对外输出轮数（应与4输出数据相同）\n6：Interval Counter B节点对外输出轮数\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 123,
+      "type": "Note",
+      "pos": {
+        "0": 3575,
+        "1": 3331
+      },
+      "size": {
+        "0": 541.4112548828125,
+        "1": 137.04843139648438
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此处节点参数：\n上方整数=3（实际轮数为4）的节点下接比较方法分别为a>b（左）与a>=b（右）的比较节点的A输入端，而B端则均接入上方python表达式为a-1的整数运算节点。其下接入与若真=4、若假=3的布尔值设置节点，布尔设置节点接入Interval Counter B节点的trigger_interval端口。\n\n节点判断逻辑（a=单张图像处理所需轮数，默认为3）：此处用于遍历文件夹时每张图像目标放大分辨率大小的判断，目的是确保在第一张图片（前a+2轮）与剩余图片（a轮）的整个放大流程中目标放大分辨率保持不变，（但文件夹内的图片与其前后两张图片的大小差距不应大于任一图片的二分之一，否则会导致逻辑判断出错，若出现这种情况建议先试用项目文件内的图片分桶脚本先对图片进行文件夹分桶再来遍历）"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 118,
+      "type": "Note",
+      "pos": {
+        "0": 4120,
+        "1": 3565
+      },
+      "size": {
+        "0": 249.7758026123047,
+        "1": 155.45469665527344
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "此注释下方的加载图像（路径）节点为用于目标图像放大分辨率判断的的加载图像节点。\n参数：\n路径：需遍历文件夹的Windows绝对路径（e：C:\\abc）\n图像读取上限：1\n模选：1\nskip_first_images端口应与左侧切换节点的的INT输出端口相连，图像输出端口与下方获取图像尺寸数量节点相连。\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 104,
+      "type": "VHS_LoadImagesPath",
+      "pos": {
+        "0": 3819,
+        "1": 3522
+      },
+      "size": [
+        245.1999969482422,
+        170
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "skip_first_images",
+          "type": "INT",
+          "link": 284,
+          "widget": {
+            "name": "skip_first_images"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            102
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadImagesPath"
+      },
+      "widgets_values": {
+        "directory": "C:\\好好好",
+        "image_load_cap": 1,
+        "skip_first_images": 0,
+        "select_every_nth": 1,
+        "choose folder to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "frame_load_cap": 1,
+            "skip_first_images": 0,
+            "select_every_nth": 1,
+            "filename": "C:\\好好好",
+            "type": "path",
+            "format": "folder"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 102,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 4117,
+        "1": 3789
+      },
+      "size": {
+        "0": 239.50364685058594,
+        "1": 86
+      },
+      "flags": {},
+      "order": 68,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 102,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "1536 width",
+          "type": "INT",
+          "links": [
+            34
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": [
+            35
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": null,
+          "slot_index": 3,
+          "shape": 3,
+          "label": "数量"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "PatchModelAddDownscale",
+      "pos": {
+        "0": 5368,
+        "1": 2447
+      },
+      "size": {
+        "0": 223.6170654296875,
+        "1": 202
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PatchModelAddDownscale"
+      },
+      "widgets_values": [
+        3,
+        2,
+        0,
+        0.35,
+        true,
+        "bicubic",
+        "bicubic"
+      ]
+    },
+    {
+      "id": 174,
+      "type": "ImpactLogger",
+      "pos": {
+        "0": 4160,
+        "1": 2798
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 64,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "*",
+          "link": 283,
+          "label": "数据"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ImpactLogger"
+      },
+      "widgets_values": [
+        "0"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "Note",
+      "pos": {
+        "0": 3820,
+        "1": 3738
+      },
+      "size": {
+        "0": 244.421630859375,
+        "1": 195.87916564941406
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Interval Counter B节点参数：左侧的trigger_interval端口接正上方若真=4，若假=3的布尔值设置节点，tick端口接上方起始值为-1的计数节点，reset端口接上方的布尔值设置节点。（此节点与Interval Counter功能基本相同，但添加了一些其他功能，如可通过python表达式调节其内置计数器值（value）的功能（expression），默认为value-1，目的是比实际图像输出轮数滞后一轮，以此来保证最后一轮的逻辑判断不出错），mode=increment，min_value=0，max_value=100（大点好），step=1，expression=value - 1。\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 114,
+      "type": "Note",
+      "pos": {
+        "0": 4122,
+        "1": 3137
+      },
+      "size": {
+        "0": 246.24734497070312,
+        "1": 386.4684143066406
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "   当前节点遍历顺序：（1-5分别为以下节点对应计数）（以前12轮为例）\n（其数量关系为：假设非单张图像（非第一张）处理需要a轮，则第一张图像处理需要a+1轮，Alternating output B的n=a轮，Interval Counter的trigger_interval在第一张时需要a+1、后续图像需要a轮，Interval Counter B的trigger_interval在第一张的前a轮时需要a+1、后续的所有图像需要a轮，位于Interval Counter下方的那个整数节点（当前情况下为3）也等于a！！！）\n1：实际轮数：\n2：Alternating output B、Interval Counter、Interval Counter B输入轮数（实际轮数-1）：            \n3：Alternating output B输出图片（当n=3，first_input=input_b时）\n4：Interval Counter输出轮数（mode=increment，step=1，trigger_interval在前3轮时为4，后续n轮为3）：（load prompt from txt与Interval Image Counter节点顺序与此节点相同）\n5：Interval Counter B输出轮数（mode=increment，step=1，trigger_interval在前4轮为0，后n轮为3：\n1 2 3 4 5 6 7 8 9 10 11 12\n0 1 2 3 4 5 6 7 8  9 10 11 \nB B B A B B A B B  A  B B\n0 0 0 1 1 1 2 2 2  3  3 3\n0 0 0 0 1 1 1 2 2  2  3 3 "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "KSampler (Efficient)",
+      "pos": {
+        "0": 5605,
+        "1": 2242
+      },
+      "size": {
+        "0": 303.4245300292969,
+        "1": 604.1825561523438
+      },
+      "flags": {},
+      "order": 105,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 12,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 13,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 14,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 15,
+          "label": "Latent"
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 16,
+          "label": "VAE(可选)"
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": 17,
+          "label": "脚本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "正面条件"
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "负面条件"
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "label": "Latent"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3,
+          "label": "VAE"
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "slot_index": 5,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        105789557860723,
+        "randomize",
+        30,
+        5,
+        "dpmpp_2m",
+        "karras",
+        0.4,
+        "auto",
+        "true",
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 87,
+      "type": "ImageReceiver",
+      "pos": {
+        "0": 3566,
+        "1": 2015
+      },
+      "size": {
+        "0": 315,
+        "1": 200
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            79
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageReceiver"
+      },
+      "widgets_values": [
+        "for循环测试用图.png",
+        3,
+        false,
+        "",
+        true
+      ]
+    },
+    {
+      "id": 85,
+      "type": "CM_IntToNumber",
+      "pos": {
+        "0": 4122,
+        "1": 1652
+      },
+      "size": {
+        "0": 215.4842071533203,
+        "1": 58
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "数字"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToNumber"
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 115,
+      "type": "Note",
+      "pos": {
+        "0": 3796,
+        "1": 1753
+      },
+      "size": {
+        "0": 579.3375244140625,
+        "1": 227.991455078125
+      },
+      "flags": {},
+      "order": 37,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "注1：在每次工作流文件夹遍历模式开启之前都应先重置一次工作流并检查图像接受和发送节点的链接ID是否相同！（单张图片模式的话将图像接收节点切换回512x512大小的空白图像即可）（图像接收节点不启用save_to_workflow、在使用对应模式时启用trigger_always，否则不启用）\n\n注2：重置步骤与检查方法：\n1、将左上的布尔值由false改为true、正上方的“整数到数字”节点值由0（非重置）改为1（重置）\n2、将图像接收节点内图像换回512x512大小的空白图像并检查图像接收与发送节点的连接ID是否相同\n3、在 自动执行 禁用（禁用！！！），即单次执行模式下执行一次工作流，在工作流运行到“图像通过模型放大”节点时即可停止工作流运行（即删除此运行任务），从而完成逻辑判断部分的重置。此时可通过检视下方输出日志节点输出的数字来确认。在默认状态下，这7个输出日志的输出数字由上至下应为：特定文件夹内第一张图片的宽、第一张图片的高、0、0、0、0、任意数字（这个数字在后面真正第一轮运行时也会变为0）\n4、将左上布尔值改回false，正上方的“整数到数字”节点值由1（重置）改回0（非重置）后，将队列执行模式改回 自动执行（变动）模式，Batch count=1后点击执行队列即可开始自动遍历放大（在按程序遍历完文件夹内所有图片后本工作流会直接报错从而停止工作流执行，此时将自动执行改回禁用即可停止队列继续执行）\n\n注3：此注释左侧计数节点参数：数字类型：integer 模式：increment 开始：-1 stop：0（不启用） 步数：1\n注4：此注释正下方计数节点参数：数字类型：integer 模式：increment 开始：0 stop：0（不启用）步数：1\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 78,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 4643,
+        "1": 1640
+      },
+      "size": {
+        "0": 304.19561767578125,
+        "1": 451.91241455078125
+      },
+      "flags": {},
+      "order": 74,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 77,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "1girl, solo, sawamura spencer eriri, saenai heroine no sodatekata, aibek, long hair, breasts, blush, blue eyes, simple background, large breasts, blonde hair, white background, holding, navel, ribbon, closed mouth, twintails, collarbone, upper body, swimsuit, hair ribbon, bikini, fang, sweatdrop, looking to the side, black ribbon, halterneck, white bikini, wavy mouth, skin fang, ..., bikini top only, spoken ellipsis, notebook, sketchbook,\nThe image is an illustration of a young girl with long blonde hair and blue eyes. She is holding a blank notebook in front of her chest and is wearing a white bra top. The girl has a sad expression on her face and is looking directly at the camera. The background is plain white. \nmasterpiece, best quality, absurdres, highres,"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "Bool",
+      "pos": {
+        "0": 3572,
+        "1": 1652
+      },
+      "size": {
+        "0": 275.8955993652344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            82,
+            88,
+            282
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "布尔"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Bool"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 81,
+      "type": "CM_IntToNumber",
+      "pos": {
+        "0": 3880,
+        "1": 1654
+      },
+      "size": {
+        "0": 215.4842071533203,
+        "1": 58
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            80,
+            87
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "数字"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToNumber"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 74,
+      "type": "Reroute",
+      "pos": {
+        "0": 6003,
+        "1": 786
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 103,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            73,
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 72,
+      "type": "Image Save",
+      "pos": {
+        "0": 6119,
+        "1": 813
+      },
+      "size": {
+        "0": 328.5971374511719,
+        "1": 643.2659301757812
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 106,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "files",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "[time(%Y-%m-%d)]",
+        "if条件运用放大实验",
+        "_",
+        4,
+        "false",
+        "png",
+        300,
+        1,
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 6481,
+        "1": 815
+      },
+      "size": {
+        "0": 235.02320861816406,
+        "1": 382.02581787109375
+      },
+      "flags": {},
+      "order": 107,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 76,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 64,
+      "type": "Note",
+      "pos": {
+        "0": 6493,
+        "1": 1252
+      },
+      "size": {
+        "0": 210,
+        "1": 213.9245147705078
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "图像保存节点参数：\noutput_path：图像输出文件夹路径与命名（默认格式的话会在output文件夹内生成一个以当天日期命名的文件夹，里面才是保存的图片）\n文件名前缀：前缀\n文件名分隔符：_ 即前缀与编号的分隔符\n文件名数字填充：4（位数？）\n文件名数字开头：不启用\n文件后缀：png\ndpi：300\n质量：建议选1？（图像大小没有改变，且保存时间缩短至默认值100的十分之一左右）\noptimize_image:启用（true）\n高质量webp：不启用（false）\n覆盖模式：不启用\n显示历史：不启用\nshow_history_by_prefix：启用\n保存工作流：启用（可视情况关闭）\n开启预览：启用\n\n\n\n\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      4,
+      0,
+      5,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      3,
+      23,
+      0,
+      5,
+      1,
+      "IMAGE"
+    ],
+    [
+      4,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      31,
+      0,
+      6,
+      1,
+      "INT"
+    ],
+    [
+      6,
+      32,
+      0,
+      6,
+      2,
+      "INT"
+    ],
+    [
+      7,
+      78,
+      0,
+      9,
+      5,
+      "STRING"
+    ],
+    [
+      8,
+      11,
+      0,
+      9,
+      6,
+      "STRING"
+    ],
+    [
+      9,
+      9,
+      1,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      10,
+      9,
+      3,
+      12,
+      1,
+      "CLIP"
+    ],
+    [
+      11,
+      33,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      12,
+      15,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      13,
+      9,
+      4,
+      17,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      9,
+      5,
+      17,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      55,
+      0,
+      17,
+      3,
+      "LATENT"
+    ],
+    [
+      16,
+      8,
+      0,
+      17,
+      4,
+      "VAE"
+    ],
+    [
+      17,
+      18,
+      0,
+      17,
+      5,
+      "SCRIPT"
+    ],
+    [
+      18,
+      17,
+      5,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      19,
+      1,
+      20,
+      0,
+      "INT"
+    ],
+    [
+      20,
+      19,
+      2,
+      21,
+      0,
+      "INT"
+    ],
+    [
+      21,
+      51,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      24,
+      0,
+      23,
+      1,
+      "INT"
+    ],
+    [
+      23,
+      29,
+      0,
+      24,
+      0,
+      "INT"
+    ],
+    [
+      24,
+      28,
+      0,
+      26,
+      0,
+      "*"
+    ],
+    [
+      25,
+      48,
+      0,
+      27,
+      0,
+      "INT"
+    ],
+    [
+      26,
+      35,
+      0,
+      27,
+      1,
+      "INT"
+    ],
+    [
+      27,
+      2,
+      1,
+      28,
+      0,
+      "INT"
+    ],
+    [
+      28,
+      2,
+      2,
+      28,
+      1,
+      "INT"
+    ],
+    [
+      29,
+      27,
+      0,
+      29,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      30,
+      5,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      30,
+      1,
+      31,
+      0,
+      "INT"
+    ],
+    [
+      32,
+      30,
+      2,
+      32,
+      0,
+      "INT"
+    ],
+    [
+      33,
+      12,
+      0,
+      33,
+      0,
+      "MODEL"
+    ],
+    [
+      34,
+      102,
+      1,
+      35,
+      0,
+      "INT"
+    ],
+    [
+      35,
+      102,
+      2,
+      35,
+      1,
+      "INT"
+    ],
+    [
+      36,
+      6,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      19,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      36,
+      1,
+      38,
+      0,
+      "INT"
+    ],
+    [
+      39,
+      36,
+      2,
+      38,
+      1,
+      "INT"
+    ],
+    [
+      40,
+      38,
+      0,
+      39,
+      0,
+      "*"
+    ],
+    [
+      41,
+      66,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      41,
+      1,
+      42,
+      0,
+      "INT"
+    ],
+    [
+      43,
+      41,
+      2,
+      42,
+      1,
+      "INT"
+    ],
+    [
+      44,
+      42,
+      0,
+      43,
+      0,
+      "*"
+    ],
+    [
+      45,
+      2,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      41,
+      0,
+      44,
+      1,
+      "IMAGE"
+    ],
+    [
+      47,
+      46,
+      0,
+      44,
+      3,
+      "INT"
+    ],
+    [
+      48,
+      28,
+      0,
+      45,
+      0,
+      "INT"
+    ],
+    [
+      49,
+      42,
+      0,
+      45,
+      1,
+      "INT"
+    ],
+    [
+      50,
+      45,
+      0,
+      46,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      51,
+      44,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      71,
+      1,
+      48,
+      0,
+      "INT"
+    ],
+    [
+      53,
+      71,
+      2,
+      48,
+      1,
+      "INT"
+    ],
+    [
+      54,
+      47,
+      0,
+      50,
+      0,
+      "*"
+    ],
+    [
+      55,
+      73,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      53,
+      0,
+      52,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      57,
+      23,
+      1,
+      52,
+      1,
+      "IMAGE"
+    ],
+    [
+      58,
+      61,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      60,
+      0,
+      54,
+      1,
+      "INT"
+    ],
+    [
+      60,
+      59,
+      0,
+      54,
+      2,
+      "INT"
+    ],
+    [
+      61,
+      54,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      62,
+      8,
+      0,
+      55,
+      1,
+      "VAE"
+    ],
+    [
+      63,
+      20,
+      0,
+      56,
+      0,
+      "*"
+    ],
+    [
+      64,
+      21,
+      0,
+      57,
+      0,
+      "*"
+    ],
+    [
+      65,
+      61,
+      2,
+      59,
+      0,
+      "INT"
+    ],
+    [
+      66,
+      61,
+      1,
+      60,
+      0,
+      "INT"
+    ],
+    [
+      67,
+      52,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      35,
+      0,
+      62,
+      0,
+      "*"
+    ],
+    [
+      69,
+      84,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      70,
+      94,
+      1,
+      69,
+      0,
+      "*"
+    ],
+    [
+      71,
+      94,
+      2,
+      70,
+      0,
+      "*"
+    ],
+    [
+      72,
+      94,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      74,
+      0,
+      72,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      71,
+      0,
+      73,
+      0,
+      "*"
+    ],
+    [
+      75,
+      36,
+      0,
+      74,
+      0,
+      "*"
+    ],
+    [
+      76,
+      74,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      77,
+      88,
+      0,
+      78,
+      0,
+      "STRING"
+    ],
+    [
+      78,
+      91,
+      0,
+      80,
+      1,
+      "INT"
+    ],
+    [
+      79,
+      87,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      81,
+      0,
+      83,
+      0,
+      "NUMBER"
+    ],
+    [
+      81,
+      80,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      82,
+      89,
+      0,
+      84,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      83,
+      100,
+      0,
+      84,
+      3,
+      "INT"
+    ],
+    [
+      84,
+      19,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      84,
+      1,
+      88,
+      0,
+      "INT"
+    ],
+    [
+      86,
+      84,
+      1,
+      88,
+      1,
+      "INT"
+    ],
+    [
+      87,
+      81,
+      0,
+      90,
+      0,
+      "NUMBER"
+    ],
+    [
+      88,
+      89,
+      0,
+      91,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      89,
+      90,
+      2,
+      91,
+      1,
+      "INT"
+    ],
+    [
+      90,
+      100,
+      0,
+      91,
+      2,
+      "INT"
+    ],
+    [
+      91,
+      91,
+      0,
+      92,
+      0,
+      "*"
+    ],
+    [
+      92,
+      84,
+      1,
+      93,
+      0,
+      "*"
+    ],
+    [
+      93,
+      82,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      94,
+      68,
+      0,
+      94,
+      1,
+      "IMAGE"
+    ],
+    [
+      95,
+      95,
+      0,
+      94,
+      2,
+      "INT"
+    ],
+    [
+      96,
+      83,
+      2,
+      95,
+      0,
+      "INT"
+    ],
+    [
+      97,
+      95,
+      0,
+      96,
+      0,
+      "*"
+    ],
+    [
+      98,
+      98,
+      0,
+      99,
+      0,
+      "INT"
+    ],
+    [
+      99,
+      90,
+      2,
+      99,
+      1,
+      "INT"
+    ],
+    [
+      100,
+      99,
+      0,
+      100,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      101,
+      48,
+      0,
+      101,
+      0,
+      "*"
+    ],
+    [
+      102,
+      104,
+      0,
+      102,
+      0,
+      "IMAGE"
+    ],
+    [
+      105,
+      107,
+      0,
+      105,
+      0,
+      "INT"
+    ],
+    [
+      106,
+      95,
+      0,
+      105,
+      1,
+      "INT"
+    ],
+    [
+      107,
+      105,
+      0,
+      106,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      281,
+      90,
+      2,
+      192,
+      0,
+      "INT"
+    ],
+    [
+      282,
+      89,
+      0,
+      192,
+      1,
+      "BOOLEAN"
+    ],
+    [
+      283,
+      192,
+      0,
+      174,
+      0,
+      "*"
+    ],
+    [
+      284,
+      192,
+      0,
+      104,
+      1,
+      "INT"
+    ],
+    [
+      285,
+      106,
+      0,
+      192,
+      2,
+      "INT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "文件夹遍历模式逻辑判断部分",
+      "bounding": [
+        3562,
+        1567,
+        818,
+        2474
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "图像放大路径判断部分",
+      "bounding": [
+        4693,
+        734,
+        534,
+        829
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "单张图片\\文件夹遍历双模式脱裤子放屁自动放大工作流（本工作流除重置外均需在执行队列的 变动自动执行模式下运行,Batch count=1）（图像缩放建议选bilinear））",
+      "bounding": [
+        3557,
+        663,
+        3527,
+        3393
+      ],
+      "color": "#3f789e",
+      "font_size": 48,
+      "flags": {}
+    },
+    {
+      "title": "单图片模式与双模式选择部分",
+      "bounding": [
+        3562,
+        735,
+        1128,
+        828
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "仅通过后期模型放大与图像保存部分",
+      "bounding": [
+        5231,
+        735,
+        1845,
+        1428
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "文件夹遍历模式正面prompt读取部分",
+      "bounding": [
+        4383,
+        1565,
+        593,
+        598
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "先后期模型放大，再扩散模型图生图部分",
+      "bounding": [
+        4383,
+        2170,
+        2698,
+        1012
+      ],
+      "color": "#A88",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.33809166040571015,
+      "offset": [
+        -2563.571357481482,
+        -625.1438059037733
+      ]
+    }
+  },
+  "version": 0.4
+}
