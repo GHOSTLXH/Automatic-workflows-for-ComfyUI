@@ -2,7 +2,7 @@
 
 此为由于不想天天看码，所以突发奇想把后端功能搬前端干的单图片\文件夹自动遍历双模式自动4K分辨率放大脱裤子放屁工作流。在工作流运行完之后，一张大小为1024x1536的图片可以以最小的损耗自动放大3次（前两次放大1.5倍，最后一次放大2倍）到4608x6912（超4k接近6k）的大小。而其中每次放大的倍数与所选取的放大模型与放大方法均可调！
 
-工作流导入方法：将github项目内的automatic upscaling workflow v1（by GHOSTLXH）.json文件导入到ComfyUI中或之间把下面这张图像拖入ComfyUI中即可！
+工作流导入方法：将github项目内的automatic upscaling workflow v1.1（by GHOSTLXH）.json文件导入到ComfyUI中或之间把下面这张图像拖入ComfyUI中即可！
 
 ![automatic upscale workflow.png](image/automatic_upscale_workflow.png)
 
@@ -50,7 +50,6 @@
 
 此为改动后（单张图片放大模式）的连接方法
 
-（4）：
 
 4：重置步骤与启动方法：
 
