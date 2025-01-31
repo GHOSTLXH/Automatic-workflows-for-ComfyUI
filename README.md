@@ -2,7 +2,7 @@
 
 此为由于不想天天看码，所以突发奇想把后端功能搬前端干的单图片\文件夹自动遍历双模式自动4K分辨率放大脱裤子放屁工作流。在工作流运行完之后，一张大小为1024x1536的图片可以以最小的损耗自动放大3次（前两次放大1.5倍，最后一次放大2倍）到4608x6912（超4k接近6k）的大小。而其中每次放大的倍数与所选取的放大模型与放大方法均可调！
 
-This is a workflow where, out of a desire to avoid looking at code every day, I whimsically moved backend functionality to the frontend to automate the upscaling of single images or entire folders to 4K resolution—essentially, a "Pants off for fartting" workflow. After the workflow runs, an image with a size of 1024x1536 can be automatically upscaled three times with minimal loss (the first two times by 1.5x and the last time by 2x) to a size of 4608x6912 (close to 6K, surpassing 4K). The scaling factor and the chosen upscaling model or method for each step are all adjustable!
+This is a workflow where, out of a desire to avoid looking at code every day, I whimsically moved backend functionality to the frontend to automate the upscaling of single images or entire folders to 4K resolution—essentially, a "Pants off for farting" workflow. After the workflow runs, an image with a size of 1024x1536 can be automatically upscaled three times with minimal loss (the first two times by 1.5x and the last time by 2x) to a size of 4608x6912 (close to 6K, surpassing 4K). The scaling factor and the chosen upscaling model or method for each step are all adjustable!
 
 **工作流导入方法**：将github项目内的automatic upscaling workflow v1.2（by GHOSTLXH）.json文件导入到ComfyUI中或之间把下面这张图像拖入ComfyUI中即可！
 
