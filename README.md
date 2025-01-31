@@ -11,7 +11,7 @@
 
 工作流新增的节点包（虽然节点包有6个节点，但在本工作流中只用了5个，你可以发挥你的想象和创造力发明更多其他的用法）：https://github.com/GHOSTLXH/ComfyUI-Counternodes/tree/main 
 
-节点导入方法：将https://github.com/GHOSTLXH/ComfyUI-Counternodes/tree/main的6个节点文件夹全部复制黏贴到ComfyUI的Custom_nodes文件夹内即可使用。
+节点导入方法：将https://github.com/GHOSTLXH/ComfyUI-Counternodes/tree/main 中的6个节点文件夹全部复制黏贴到ComfyUI的Custom_nodes文件夹内即可使用。
 
 我的lora与其他模型（大爷有空过来玩啊QAQ求求你了求求你了><）：https://civitai.com/user/ghostlxh
 
