@@ -9,7 +9,7 @@ This is a workflow where, out of a desire to avoid looking at code every day, I 
 
 Workflow Import Method: Import the `automatic upscaling workflow v1.2 (by GHOSTLXH).json` file from the GitHub project into ComfyUI, or simply drag and drop the image below directly into ComfyUI!
 
-![automatic upscale workflow v12.png](image/Automatic_Upscale_Workflow_v1.2(by_GHOSTLXH）.png)
+![whole workflow preview](image/AutomaticUpscaleWorkflowv1.2(byGHOSTLXH).png)
 
 **加注：此放大工作流虽然对文件夹内图像大小的变化做了一些应对措施，可在一定范围内容纳不同分辨率的图像进行遍历自动放大。但当同一文件夹内图像大小差距相差大于等于小图像的50%时会导致工作流逻辑判断出错，导致小图像直接快进到单纯后期模型放大导致工作流出错！因此若遇到这个情况可以使用本项目文件中由今宵（ https://civitai.com/user/TonightXiao_JinXiao ）和银月（ https://civitai.com/user/silvermoong ）提供的 imagebucketmanage 图片分辨率自动分桶脚本来先将需要放大的文件进行分桶（虽然这个脚本原本不是干这个的......），再逐个文件夹进行遍历放大，这样便可完全避免该问题的发生了。**
 
