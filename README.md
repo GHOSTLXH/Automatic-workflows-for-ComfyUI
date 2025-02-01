@@ -1,9 +1,24 @@
 # Automatic-workflows-for-ComfyUI
 
+此为由于不想天天看码，所以突发奇想把后端功能搬前端干的单图片\文件夹自动遍历双模式自动4K分辨率放大脱裤子放屁工作流。在工作流运行完之后，一张大小为1024x1536的图片可以以最小的损耗自动放大3次（前两次放大1.5倍，最后一次放大2倍）到4608x6912（超4k接近6k）的大小。而其中每次放大的倍数与所选取的放大模型与放大方法均可调！而在文件夹遍历模式开启后，你要做的事只有：
 
-此为由于不想天天看码，所以突发奇想把后端功能搬前端干的单图片\文件夹自动遍历双模式自动4K分辨率放大脱裤子放屁工作流。在工作流运行完之后，一张大小为1024x1536的图片可以以最小的损耗自动放大3次（前两次放大1.5倍，最后一次放大2倍）到4608x6912（超4k接近6k）的大小。而其中每次放大的倍数与所选取的放大模型与放大方法均可调！
+**1、按格式将图像和内含图像正面prompt的txt文件放在文件夹里**
 
-This is a workflow where, out of a desire to avoid looking at code every day, I whimsically moved backend functionality to the frontend to automate the upscaling of single images or entire folders to 4K resolution—essentially, a "Pants off for farting" workflow. After the workflow runs, an image with a size of 1024x1536 can be automatically upscaled three times with minimal loss (the first two times by 1.5x and the last time by 2x) to a size of 4608x6912 (close to 6K, surpassing 4K). The scaling factor and the chosen upscaling model or method for each step are all adjustable!
+**2、按项目教程检查工作流是否在运行前已经重置，并在教程表明的路径栏内输入文件夹的Windows绝对路径**
+
+**3、将ComfyUI的队列执行模式调至 自动执行（变动） 模式**
+
+**4、剩下的就交给电脑吧，它会全部干完的。**
+
+This is an unconventional workflow conceived out of a desire to avoid daily coding, whimsically shifting backend functionalities to the frontend for the purpose of single-image or folder-traversing dual-mode automatic 4K resolution upscaling—essentially a redundant process. Upon completion of the workflow, an image sized 1024x1536 can be automatically upscaled three times with minimal loss (the first two upscales by a factor of 1.5, and the final upscale by a factor of 2), reaching a size of 4608x6912 (approaching 6K, surpassing 4K). The magnification factor for each upscale, as well as the selected upscaling model and method, are all adjustable! When the folder traversal mode is activated, all you need to do is:
+
+**1. Place the images and the accompanying text files containing the image's positive prompts into the folder according to the specified format.**
+
+**2. Follow the project tutorial to ensure the workflow is reset before running, and input the Windows absolute path of the folder in the designated path field as indicated by the tutorial.**
+
+**3. Set ComfyUI's queue execution mode to "Auto-execute (on change)" mode.**
+
+**4. Then, simply leave the rest to the computer; it will handle everything automatically.**
 
 **工作流导入方法**：将github项目内的automatic upscaling workflow v1.2（by GHOSTLXH）.json文件导入到ComfyUI中或之间把下面这张图像拖入ComfyUI中即可！
 
