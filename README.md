@@ -67,6 +67,8 @@ Folder Traversal Mode:
 2. A TXT file with the same name as each image, containing the corresponding positive prompt for that image.  
 3. A blank PNG image with a size of 512x512.
 
+**加注：文件夹图片与同名的，包含该图片对应prompt的txt文件格式如下图所示！注意！由于Comfy的限制，最后一张图片实际上不参与放大流程，因此你可以将文件夹内的最后一张图片和txt文件复制黏贴一下放在最后面，这样就能确保文件夹内的所有图片都能使用自动放大流程了！**
+
 **注1：在每次工作流文件夹遍历模式开启之前都应先重置一次工作流并检查图像接受和发送节点的链接ID是否相同！（单张图片模式的话将图像接收节点切换回512x512大小的空白图像即可）**
 
 Note 1:Before starting the folder traversal mode in the workflow each time, you should reset the workflow and check whether the connection IDs of the image receiving and sending nodes are the same! (For single-image mode, simply switch the image receiving node back to a blank 512x512 image.)
