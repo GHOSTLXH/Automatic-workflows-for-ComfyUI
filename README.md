@@ -150,7 +150,11 @@ This is the connection method after modification (single-image upscaling mode).
 
 (2) Replace the image in the image receiving node with a blank 512x512 image and check whether the connection IDs of the image receiving and sending nodes are the same.
 
-![picture6](image/picture6.png)
+![picture10](image/picture10.png)  
+
+2025.4.7加注：由于ComfyUI版本的变更，部分节点（例如logic）组无法继续使用，因此此处的布尔值节点更换为Easy-use节点包内的布尔值节点。
+
+2025.4.7 Addendum: Due to changes in the ComfyUI version, some node groups (e.g., logic) can no longer be used. Therefore, the Boolean node here has been replaced with the Boolean node from the Easy-use node pack.
 
 （3）、在上图右上角的节点223字符串节点中输入按格式（以一张图片和与它同名的、包含该图片的正面prompt的txt文件为一个单位）排好图片与txt文件的文件夹绝对路径。（或者也可以分别在该模块的两个加载图像（路径）节点与右侧的Load prompt from TXT节点的路径输入栏内输入）
 
