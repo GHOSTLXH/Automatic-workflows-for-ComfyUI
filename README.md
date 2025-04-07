@@ -150,7 +150,7 @@ This is the connection method after modification (single-image upscaling mode).
 
 (2) Replace the image in the image receiving node with a blank 512x512 image and check whether the connection IDs of the image receiving and sending nodes are the same.
 
-![picture10](image/picture10.png)  
+![picture10](image/picture10.png)
 
 2025.4.7加注：由于ComfyUI版本的变更，部分节点（例如logic）组无法继续使用，因此此处的布尔值节点更换为Easy-use节点包内的布尔值节点。
 
